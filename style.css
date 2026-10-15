@@ -1,0 +1,40 @@
+:root{--bg:#f6f8f5;--card:#fff;--ink:#16302a;--mute:#5d6f69;--line:#d5ded9;--teal:#0f6b5c;--teal-d:#0a4f44;--gold:#e3a72f}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1b18;--card:#172622;--ink:#e8f1ee;--mute:#9db2ab;--line:#2c4039;--teal:#4fc3ad;--teal-d:#7ad9c6}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Noto Sans Oriya","Inter",system-ui,sans-serif}
+.top{background:var(--teal-d);color:#fff;padding:2rem 1.25rem 2.25rem;border-bottom:6px solid var(--gold)}
+.top h1{margin:0 auto .4rem;max-width:720px;font-size:1.7rem}
+.top p{margin:0 auto;max-width:720px;opacity:.9}
+main{max-width:720px;margin:0 auto;padding:1.25rem}
+.block{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.25rem;margin-bottom:1rem}
+.block h2{margin:0 0 .75rem;font-size:1.2rem}
+.block.q{border-left:5px solid var(--teal)}
+.block.q h3{margin:0 0 .6rem;font-size:1.05rem;font-weight:600}
+small{display:block;font-weight:400;color:var(--mute);font-size:.85rem}
+h2 small,h3 small{display:inline;margin-left:.4rem}
+.block.q h3 small{display:block;margin:0}
+label{display:block;font-weight:600;margin-bottom:.9rem}
+input[type=text],input[type=tel],textarea{width:100%;margin-top:.35rem;padding:.65rem .75rem;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}
+textarea{min-height:86px;resize:vertical}
+input:focus,textarea:focus,button:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+.opts{display:flex;flex-wrap:wrap;gap:.5rem;margin:.2rem 0 .7rem}
+.opts label{margin:0;font-weight:400;display:flex;align-items:center;gap:.4rem;padding:.35rem .8rem;border:1px solid var(--line);border-radius:999px;cursor:pointer}
+.opts label:has(input:checked){background:var(--teal);color:#fff;border-color:var(--teal)}
+.opts input{accent-color:var(--gold)}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.25rem 0 .5rem}
+button{font:inherit;font-weight:600;padding:.8rem 1.2rem;border-radius:8px;border:2px solid var(--teal);cursor:pointer;text-align:left}
+button small{color:inherit;opacity:.85}
+.primary{background:var(--teal);color:#fff}
+.primary:hover{background:var(--teal-d)}
+.ghost{background:transparent;color:var(--teal)}
+#msg{color:var(--teal);font-weight:600;min-height:1.5em}
+
+#report{display:none}
+@media print{
+  .top,main{display:none!important}
+  #report{display:block;color:#000;background:#fff;font-size:12pt}
+  body{background:#fff}
+  #report td{border:1px solid #999;padding:6px}
+  #report hr{border:0;border-top:1px solid #ccc}
+  #report p{break-inside:avoid}
+}

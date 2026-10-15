@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ଔଷଧ ଦୋକାନ ସର୍ବେକ୍ଷଣ | Medicine Shop Survey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>ଔଷଧ ଦୋକାନ ସର୍ବେକ୍ଷଣ</h1>
+  <p>Medicine Shop Survey &mdash; ଦୟାକରି ସବୁ ପ୍ରଶ୍ନର ଉତ୍ତର ଦିଅନ୍ତୁ। ଆପଣଙ୍କ ସୂଚନା କେବଳ ଅଧ୍ୟୟନ ପାଇଁ।</p>
+</header>
+<main>
+<form id="survey" autocomplete="off">
+  <section class="block">
+    <h2>ଦୋକାନ ପରିଚୟ <small>Shop details</small></h2>
+    <label>ଔଷଧ ଦୋକାନର ନାମ <small>Medicine store name</small>
+      <input type="text" name="shop" required></label>
+    <label>ମାଲିକଙ୍କ ନାମ <small>Owner name</small>
+      <input type="text" name="owner" required></label>
+    <label>ମୋବାଇଲ୍ ନମ୍ବର <small>Phone number</small>
+      <input type="tel" name="phone" inputmode="numeric" pattern="[0-9+ ]{10,14}" required></label>
+  </section>
+  <div id="questions"></div>
+  <div class="actions">
+    <button type="button" id="pdfBtn" class="primary">PDF ସେଭ୍ କରନ୍ତୁ <small>Save as PDF</small></button>
+    <button type="button" id="copyBtn" class="ghost">ଟେକ୍ସଟ୍ କପି କରନ୍ତୁ <small>Copy text for WhatsApp</small></button>
+    <button type="button" id="exportBtn" class="ghost">Word ଫାଇଲ୍ <small>.doc</small></button>
+    <button type="button" id="clearBtn" class="ghost">ସଫା କରନ୍ତୁ <small>Clear</small></button>
+  </div>
+  <p id="msg" role="status"></p>
+</form>
+</main>
+<div id="report"></div>
+<script src="script.js"></script>
+</body>
+</html>
