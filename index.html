@@ -12,29 +12,56 @@
 <body>
 <header class="top">
   <h1>ଔଷଧ ଦୋକାନ ସର୍ବେକ୍ଷଣ</h1>
-  <p>Medicine Shop Survey &mdash; ଦୟାକରି ସବୁ ପ୍ରଶ୍ନର ଉତ୍ତର ଦିଅନ୍ତୁ। ଆପଣଙ୍କ ସୂଚନା କେବଳ ଅଧ୍ୟୟନ ପାଇଁ।</p>
+  <p>Medicine Shop Survey &mdash; ଦୟାକରି ସବୁ ପ୍ରଶ୍ନର ଉତ୍ତର ଦିଅନ୍ତୁ। ଆପଣଙ୍କ ସୂଚନା କେବଳ ଅଧ୍ୟୟନ ପାଇଁ। ପ୍ରାୟ ୩ ମିନିଟ୍ ଲାଗିବ। / Takes about 3 minutes.</p>
 </header>
+
 <main>
-<form id="survey" autocomplete="off">
-  <section class="block">
-    <h2>ଦୋକାନ ପରିଚୟ <small>Shop details</small></h2>
-    <label>ଔଷଧ ଦୋକାନର ନାମ <small>Medicine store name</small>
-      <input type="text" name="shop" required></label>
-    <label>ମାଲିକଙ୍କ ନାମ <small>Owner name</small>
-      <input type="text" name="owner" required></label>
-    <label>ମୋବାଇଲ୍ ନମ୍ବର <small>Phone number</small>
-      <input type="tel" name="phone" inputmode="numeric" pattern="[0-9+ ]{10,14}" required></label>
-  </section>
-  <div id="questions"></div>
-  <div class="actions">
-    <button type="button" id="pdfBtn" class="primary">PDF ସେଭ୍ କରନ୍ତୁ <small>Save as PDF</small></button>
-    <button type="button" id="copyBtn" class="ghost">ଟେକ୍ସଟ୍ କପି କରନ୍ତୁ <small>Copy text for WhatsApp</small></button>
-    <button type="button" id="exportBtn" class="ghost">Word ଫାଇଲ୍ <small>.doc</small></button>
-    <button type="button" id="clearBtn" class="ghost">ସଫା କରନ୍ତୁ <small>Clear</small></button>
+  <div class="progress-wrap">
+    <div class="progress"><span id="bar"></span></div>
+    <small id="progText"></small>
   </div>
-  <p id="msg" role="status"></p>
-</form>
+
+  <noscript><p class="block">JavaScript ଚାଲୁ କରନ୍ତୁ। / Please enable JavaScript to use this survey.</p></noscript>
+
+  <form id="survey" autocomplete="off" novalidate>
+    <section class="block">
+      <h2>ଦୋକାନ ପରିଚୟ <small>Shop details</small></h2>
+
+      <label>ଔଷଧ ଦୋକାନର ନାମ <small>Medicine store name</small>
+        <input type="text" name="shop" required></label>
+
+      <label>ମାଲିକଙ୍କ ନାମ <small>Owner name</small>
+        <input type="text" name="owner" required></label>
+
+      <label>ମୋବାଇଲ୍ ନମ୍ବର <small>Phone number (10 digits)</small>
+        <input type="tel" name="phone" inputmode="numeric" required
+               pattern="(\+91[ \-]?)?[6-9][0-9]{9}"
+               title="10 ଅଙ୍କର ମୋବାଇଲ୍ ନମ୍ବର ଦିଅନ୍ତୁ / Enter a 10-digit mobile number"></label>
+
+      <label>ଗାଁ / ସହର ଓ ଜିଲ୍ଲା <small>Village/Town &amp; District</small>
+        <input type="text" name="place"></label>
+
+      <label>ଦୋକାନ କେତେ ବର୍ଷ ହେଲା ଚାଲୁଛି? <small>Years the shop has been running</small>
+        <input type="number" name="years" min="0" max="100" step="1" inputmode="numeric"></label>
+
+      <details open>
+        <summary>ଦୋକାନର ପ୍ରୋଫାଇଲ୍ ବାଛନ୍ତୁ <small>Select store profile</small></summary>
+        <div id="profile"></div>
+      </details>
+    </section>
+
+    <div id="questions"></div>
+
+    <div class="actions">
+      <button type="button" id="pdfBtn" class="primary">PDF ସେଭ୍ କରନ୍ତୁ <small>Save as PDF</small></button>
+      <button type="button" id="copyBtn" class="ghost">ଟେକ୍ସଟ୍ କପି କରନ୍ତୁ <small>Copy text for WhatsApp</small></button>
+      <button type="button" id="exportBtn" class="ghost">Word ଫାଇଲ୍ <small>.doc</small></button>
+      <button type="button" id="clearBtn" class="ghost">ସଫା କରନ୍ତୁ <small>Clear</small></button>
+    </div>
+    <p id="msg" role="status" aria-live="polite"></p>
+  </form>
 </main>
+
 <div id="report"></div>
 <script src="script.js"></script>
 </body>
